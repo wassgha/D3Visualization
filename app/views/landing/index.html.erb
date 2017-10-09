@@ -1,0 +1,10 @@
+<h1>Landing#index</h1>
+<p>Find me in app/views/landing/index.html.erb</p>
+<%= form_tag("/search", method: "get") do %>
+  County : <br/>
+  <%= select_tag(:county_id, options_from_collection_for_select(@counties, :county, :county)) %><br/>
+  School : <br/>
+  <%= select_tag(:school_id, options_from_collection_for_select(@schools, :state_lea_id, :school_name)) %></br>
+  Year : <br/>
+  <%= submit_tag("Show exams") %>
+<% end %>
