@@ -13,4 +13,15 @@ $ ->
       error: (jqXHR, textStatus, errorThrown) ->
         console.log("AJAX Error: #{textStatus}")
       success: (data, textStatus, jqXHR) ->
-        console.log("Dynamic county select OK!")
+        console.log("Dynamic school select OK!")
+  $(document).on 'change', '#school_id', (evt) ->
+    $.ajax 'update_years',
+      type: 'GET'
+      dataType: 'script'
+      data: {
+        school: $("#school_id option:selected").val()
+      }
+      error: (jqXHR, textStatus, errorThrown) ->
+        console.log("AJAX Error: #{textStatus}")
+      success: (data, textStatus, jqXHR) ->
+        console.log("Dynamic year select OK!")
