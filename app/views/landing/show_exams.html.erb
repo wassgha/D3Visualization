@@ -1,0 +1,22 @@
+<h1>Showing exams for </h1>
+<h2><%= @school_name %></h2>
+<table>
+  <tr>
+    <th>Student Group</th>
+    <th>Subject</th>
+    <th>Grade</th>
+    <th>Growth</th>
+    <th>Num Scored</th>
+    <th>Academic Year</th>
+  </tr>
+  <% @exams.each do |exam| %>
+    <tr>
+      <td><%= exam.student_group %></td>
+      <td><%= exam.subject %></td>
+      <td><%= exam.grade %></td>
+      <td><%= exam.growth %></td>
+      <td><%= exam.numscored %></td>
+      <td><%= exam.academic_year_start %> - <%= exam.academic_year_end %></td>
+    </tr>
+  <% end %>
+</table>
