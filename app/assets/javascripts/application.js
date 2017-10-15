@@ -18,11 +18,26 @@
 
 function load () {
 
-  $( "#filters" ).fadeOut( "slow", function () {
+//  $( "#filters" ).fadeOut( "slow", function () {
     $( "#progress").fadeIn( "slow", function () {
       showProgressBar()
+      $.ajax({
+        url: 'show_exams',
+        type: 'GET',
+        dataType: 'script',
+        data: {
+          school_id: $("#school_id option:selected").val(),
+          year_id: $("#year_id option:selected").val()
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+          console.log("AJAX Error: " + textStatus)
+        },
+        success: function (data, textStatus, jqXHR) {
+          console.log("Showing exams OK!")
+        },
+      })
     })
-  })
+//  })
 }
 
 function home () {
