@@ -11,6 +11,51 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
 //= require turbolinks
+//= require semantic_ui/semantic_ui
 //= require_tree .
+
+
+function load () {
+
+  $( "#filters" ).fadeOut( "slow", function () {
+    $( "#progress").fadeIn( "slow", function () {
+      showProgressBar()
+    })
+  })
+}
+
+function home () {
+  $( "#results" ).fadeOut( "slow", function () {
+    $( "#filters").fadeIn( "slow", function () {
+    })
+  })
+}
+
+function showProgressBar () {
+  var $progress = $('.ui.progress'),
+      $button = $(this),
+      updateEvent
+
+  clearInterval(window.fakeProgress)
+  $progress.progress('reset')
+  window.fakeProgress = setInterval(function() {
+    $progress.progress('increment')
+    if($progress.progress('is complete')) {
+      $( "#progress" ).fadeOut( "slow", function () {
+        $( "#results" ).fadeIn("slow", function () {})
+      })
+      clearInterval(window.fakeProgress)
+    }
+  }, 10)
+}
+
+
+$('.ui.progress')
+  .progress({
+    duration : 200,
+    total    : 200,
+    text     : {
+      active: '{value} of {total} done'
+    }
+  })
