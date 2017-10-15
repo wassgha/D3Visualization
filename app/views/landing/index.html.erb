@@ -1,42 +1,16 @@
-<!-- <h1>Lookup exams</h1>
-<p>Select a county, school and year to show exams.</p>
-<%= form_tag("/show_exams", method: "get") do %>
-  County : <br/>
-  <%= select_tag(:county_id, options_from_collection_for_select(@counties, :county, :county)) %><br/>
-  School : <br/>
-  <%= select_tag(:school_id, options_from_collection_for_select(@schools, :state_lea_id, :school_name)) %></br>
-  Year : <br/>
-  <%= select_tag(:year_id, options_from_collection_for_select(@years, :academic_year_start, :school_year)) %></br>
-  <%= submit_tag("Show exams") %>
-<% end %>
-<blockquote class="blockquote">
-  <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-</blockquote> -->
 
+<i class="home icon home-icon huge" onclick="home()"></i>
 
-<div class="ui container centered main">
+<h1 class="ui header title">Byerly's Boys</h1>
 
-    <i class="home icon home-icon huge" onclick="home()"></i>
+<%= render partial: 'landing/query_form' %>
 
-    <h1 class="ui header title">Byerley's Boys</h1>
+<div class="ui indicating progress" data-value="1" data-total="200" id="progress" style="margin-top: 30px; width: 50%; display: none;">
+  <div class="bar">
+    <div class="progress"></div>
+  </div>
+</div>
 
-    <%= render partial: 'landing/query_form' %>
-
-    <div class="ui indicating progress" data-value="1" data-total="200" id="progress" style="margin-top: 30px; width: 50%; display: none;">
-      <div class="bar">
-        <div class="progress"></div>
-      </div>
-    </div>
-
-    <!-- <div class="three column doubling ui grid results-container centered" id="results" style="display: none;">
-      <div class="five wide column centered results-col">Student Group</div>
-      <div class="three wide column results-col">Subject</div>
-      <div class="two wide column results-col">Grade</div>
-      <div class="three wide column results-col">Growth Num Scored</div>
-      <div class="three wide column results-col">Academic Year</div>
-    </div> -->
-    <div id="examsTable">
-      <%= render partial: 'landing/exams_table' %>
-    </div>
-
+<div id="examsTable">
+  <%= render partial: 'landing/exams_table' %>
 </div>
