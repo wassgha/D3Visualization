@@ -3,12 +3,16 @@ class LandingController < ApplicationController
     @counties = School.select(:county).uniq
     @schools = []
     @years = []
+    @exams = []
   end
 
   def show_exams
     @school = School.find_by_state_lea_id(params[:school_id])
     @school_name = @school.lea_name
     @exams = Exam.where("state_lea_id = ? AND academic_year_start = ?", params[:school_id], params[:year_id])
+    respond_to do |format|
+      format.js
+    end
   end
 
   def update_schools

@@ -3,33 +3,28 @@
     <tr>
       <th>Student Group</th>
       <th>Subject</th>
-      <th>Grade</th>
-      <th>Growth Num Scored</th>
+      <th>% Advanced</th>
+      <th>% Proficient</th>
+      <th>% Basic</th>
+      <th>% Below Basic</th>
       <th>Academic Year</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>Cell</td>
-    </tr>
-    <tr>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>Cell</td>
-    </tr>
-    <tr>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>Cell</td>
-      <td>Cell</td>
-    </tr>
+    <% @exams.each do |exam| %>
+      <tr>
+        <td><%= exam.student_group %></td>
+        <td><%= exam.subject %></td>
+        <td><%= exam.pctadvanced %></td>
+        <td><%= exam.pctproficient %></td>
+        <td><%= exam.pctbasic %></td>
+        <td><%= exam.pctbelowbasic %></td>
+        <!-- <td><%= exam.grade %></td> -->
+        <!-- <td><%= exam.growth %></td> -->
+        <!-- <td><%= exam.numscored %></td> -->
+        <td><%= exam.academic_year_start %> - <%= exam.academic_year_end %></td>
+      </tr>
+    <% end %>
   </tbody>
   <tfoot>
     <tr>
