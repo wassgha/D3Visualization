@@ -1,20 +1,20 @@
-<div class="three column doubling ui grid filters-container" id="filters">
-  <div class="row">
-    <div class="column custom-flex">
+<div class="ui stackable grid filters-container" id="filters">
+  <div class="three column row">
+    <div class="column">
       <%= select_tag(:county_id,  content_tag(:option, 'Select a County', :value=>"") + options_from_collection_for_select(@counties, :county, :county),
         {:class => 'ui search dropdown', :style => 'width: 100%'}) %><br/>
     </div>
-    <div class="column custom-flex">
+    <div class="column">
       <%= select_tag(:school_id, content_tag(:option, 'Select a School', :value=>"") + options_from_collection_for_select(@schools, :state_lea_id, :school_name),
         {:class => 'ui search dropdown', :style => 'width: 100%'}) %><br/>
     </div>
-    <div class="column custom-flex">
+    <div class="column">
       <%= select_tag(:year_id, content_tag(:option, 'Select a Year', :value=>"") + options_from_collection_for_select(@years, :academic_year_start, :school_year),
         {:class => 'ui search dropdown', :style => 'width: 100%'}) %><br/>
      </div>
    </div>
-   <div class="row centered">
-     <button class="ui primary button large" style="margin-top: 30px;" onclick="load()">
+   <div class="one column row">
+     <button class="column ui primary button large submit" onclick="load()">
        Show Exams
      </button>
    </div>
